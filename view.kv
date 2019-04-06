@@ -1,0 +1,16 @@
+RecycleView:
+    data: [{'value': value} for value in app.dataset]
+
+    RecycleBoxLayout:
+        viewclass: 'Bar'
+        default_size_hint: 1, 1
+
+
+<Bar@Widget>:
+    value: 0
+
+    canvas:
+        Color:
+        Rectangle:
+            pos: self.pos
+            size: self.width, self.height * self.value
