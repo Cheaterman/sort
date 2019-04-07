@@ -4,12 +4,13 @@ def ssort(iterable):
     return _ssort(list(iterable))
 
 def _ssort(iterable):
-    for offset in range(len(iterable) - 1):
+    for offset, min_value in enumerate(iterable):
         min_index = offset
 
-        for index in range(offset, len(iterable)):
-            if iterable[index] < iterable[min_index]:
-                min_index = index
+        for index, value in enumerate(iterable[offset:]):
+            if value < min_value:
+                min_index = offset + index
+                min_value = value
 
         swap(iterable, min_index, offset)
 

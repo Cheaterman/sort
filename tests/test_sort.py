@@ -7,8 +7,9 @@ import sort
 
 @pytest.fixture(
     params=[
-        sort.ssort,
+        sort.gsort,
         sort.bsort,
+        sort.ssort,
         sort.isort,
         sort.msort,
         sort.qsort,
@@ -21,8 +22,9 @@ def sort_function(request):
 
 def max_range_for_function(function):
     max_ranges = {
-        sort.ssort: 1000,
+        sort.gsort: 1000,
         sort.bsort: 1000,
+        sort.ssort: 1000,
         sort.isort: 1000,
     }
     return max_ranges.get(function, 100_000)

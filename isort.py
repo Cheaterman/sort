@@ -4,11 +4,22 @@ def isort(iterable):
     return _isort(list(iterable))
 
 def _isort(iterable):
-    for sorted_end in range(len(iterable) - 1):
-        for index in range(sorted_end, -1, -1):
-            if iterable[index] < iterable[index + 1]:
+    for sorted_end in range(1, len(iterable)):
+        index = sorted_end - 1
+        current_value = iterable[sorted_end]
+
+        for index in range(index, -1, -1):
+            value = iterable[index]
+
+            if value < current_value:
                 break
 
-            swap(iterable, index, index + 1)
+            iterable[index + 1] = value
+
+        else:
+            if index == 0:
+                index = -1
+
+        iterable[index + 1] = current_value
 
     return iterable
