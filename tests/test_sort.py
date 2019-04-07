@@ -6,7 +6,13 @@ import sort
 
 
 @pytest.fixture(
-    params=[sort.qsort, sort.bsort, sort.isort, sort.msort],
+    params=[
+        sort.ssort,
+        sort.bsort,
+        sort.isort,
+        sort.msort,
+        sort.qsort,
+    ],
     ids=lambda function: f'sort_function={function.__name__}',
 )
 def sort_function(request):
@@ -15,6 +21,7 @@ def sort_function(request):
 
 def max_range_for_function(function):
     max_ranges = {
+        sort.ssort: 1000,
         sort.bsort: 1000,
         sort.isort: 1000,
     }
